@@ -5,21 +5,19 @@ import Link from "next/link";
 
 const MainHeader: FC = () => {
   return (
-    <div className="bg-[#F0F2F3] p-4 flex items-center justify-between max-w-[1920px] mx-auto">
+    <div className="bg-[#F0F2F3] p-2 flex items-center justify-between max-w-[1920px] mx-auto h-[60px] md:h-[80px]">
       <div className="flex items-center space-x-4">
-        <div className="w-12 h-12"> 
+        <div className="w-12 h-12 md:w-16 md:h-16"> 
           <Image
             src="/images/Logo-01.png" 
             alt="Logo"
             width={48} 
             height={48}
-            className="rounded-full" 
+            className="rounded-full ml-2 md:ml-4 mt-2" 
           />
         </div>
-      
-        <h1 className="text-2xl font-semibold text-[#272343]">Comfoty</h1>
+        <h1 className="text-xl md:text-2xl font-semibold text-[#272343]">Comforty</h1>
       </div>
-
       <div className="flex items-center space-x-6">
         <div className="w-[120px] h-[44px] bg-white flex items-center justify-between px-4 border border-[#272343]">
           <Link href="/cart" className="flex items-center space-x-2">
@@ -37,3 +35,6 @@ const MainHeader: FC = () => {
 };
 
 export default MainHeader;
+
+
+

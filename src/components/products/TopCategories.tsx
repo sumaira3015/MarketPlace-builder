@@ -3,9 +3,23 @@ import Image from "next/image";
 
 const TopCategories: FC = () => {
   const categories = [
-    { id: 1, name: "Wing Chair", count: "3,584 Products", img: "/images/product-05.png" },
-    { id: 2, name: "Wooden Chair", count: "157 Products", img: "/images/product-06.png" },
-    { id: 3, name: "Desk Chair", count: "154 Products", img: "/images/product-03.png" },
+    { 
+      id: "1", 
+      name: "Wing Chair", 
+      count: "3,584 Products", 
+      img: "/images/product-05.png" 
+    },
+    { 
+      id: "2", 
+      name: "Wooden Chair", 
+      count: "157 Products", 
+      img: "/images/product-06.png" 
+    },
+    { 
+      id: "3", 
+      name: "Desk Chair", 
+      count: "154 Products", 
+      img: "/images/product-03.png" },
   ];
 
   return (

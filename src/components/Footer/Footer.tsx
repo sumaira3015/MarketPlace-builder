@@ -6,7 +6,8 @@ const Footer: FC = () => {
   return (
     <footer className="bg-[#FFFFFF] text-black py-12 px-4 border-t-2 border-gray-100 mt-8">
       <div className="max-w-[1920px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-6">
-        <div className="flex flex-col">
+        {/* Logo and Description Section */}
+        <div className="flex flex-col pl-0 sm:pl-4">
           <div className="flex items-center mb-4"> 
             <Image
               src="/images/logo-01.png" 
@@ -17,11 +18,8 @@ const Footer: FC = () => {
             />
             <h3 className="text-2xl font-bold text-[#272343]">Comforty</h3>
           </div>
-          <ul>
-            <li className="text-sm leading-[24px] hover:text-[#029FAE] mb-6">Vivamus tristique odio sit amet velit semper</li>
-            <li className="text-sm leading-[24px] hover:text-[#029FAE] mb-2">Eu posuere turpis interdum</li>
-            <li className="text-sm leading-[24px] hover:text-[#029FAE] mb-2">Cras egestas purus</li>
-          </ul>
+          <p>Vivamus tristique odio sit amet velit semper, eu posuere turpis interdum.
+             Cras egestas purus.</p>
           <div className="flex mt-4 space-x-4">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="p-2 hover:border-2 hover:border-[#029FAE] rounded-full">
               <FaFacebookF className="w-5 h-5 text-black hover:text-[#029FAE]" />
@@ -42,7 +40,7 @@ const Footer: FC = () => {
         </div>
 
         {/* Category Section */}
-        <div>
+        <div className="pl-0 sm:pl-8">
           <h3 className="text-xl font-bold text-[#272343] mb-4">Category</h3>
           <ul>
             <li className="text-sm leading-[24px] hover:text-[#029FAE] mb-2">Sofa</li>
@@ -55,7 +53,7 @@ const Footer: FC = () => {
         </div>
 
         {/* Support Section */}
-        <div>
+        <div className="pl-0 sm:pl-8">
           <h3 className="text-xl font-bold text-[#272343] mb-4">Support</h3>
           <ul>
             <li className="text-sm leading-[24px] hover:text-[#029FAE] mb-2">Help & Support</li>
@@ -66,16 +64,16 @@ const Footer: FC = () => {
         </div>
 
         {/* Newsletter Section */}
-        <div>
+        <div className="pl-0 sm:pl-4">
           <h3 className="text-xl font-bold text-[#272343] mb-4">Newsletter</h3>
           <p className="text-sm mb-4 leading-[24px]">Your email</p>
-          <div className="flex mb-2"> 
+          <div className="flex flex-col sm:flex-row mb-2"> 
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-[285px] h-[42px] p-2 text-black rounded-l border border-gray-300"
+              className="w-full sm:w-[280px] h-[40px] p-2 text-black rounded-l border border-gray-300 mb-2 sm:mb-0"
             />
-            <button className="bg-[#029FAE] text-white w-[120px] h-[40px] px-6 py-2 rounded-r ml-2">
+            <button className="bg-[#029FAE] text-white w-full sm:w-[120px] h-[40px] px-6 py-2 rounded-r">
               Subscribe
             </button>
           </div>
@@ -87,8 +85,9 @@ const Footer: FC = () => {
 
       <hr className="border-t-2 border-gray-100 mt-8" /> 
 
-      <div className="flex justify-between items-center mt-4 text-sm">
-        <p>© 2021 - Blogy - Designed & Developed by Zakirsoft</p>
+      {/* Footer Bottom Section */}
+      <div className="flex flex-col sm:flex-row justify-between items-center mt-4 text-sm pl-0 sm:pl-8">
+        <p className="text-center sm:text-left mb-4 sm:mb-0">© 2021 - Blogy - Designed & Developed by Zakirsoft</p>
 
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">

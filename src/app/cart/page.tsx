@@ -1,82 +1,107 @@
+// app/cart/page.tsx
+
 import { FC } from "react";
 import Image from "next/image";
-import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, TrashIcon } from "@heroicons/react/24/outline";
 
-const CartPage: FC = () => {
-  const products = [
-    {
-      id: 1,
-      name: "Library Stool Chair",
-      img: "/images/Featured-Image-01.png",
-      price: "$99",
-      qty: 1,
-    },
-    {
-      id: 2,
-      name: "Library Stool Chair",
-      img: "/images/Featured-Image-02.png",
-      price: "$99",
-      qty: 1,
-    },
-  ];
-
+const CartSection: FC = () => {
   return (
-    <section className="w-full max-w-[1920px] mx-auto py-10 px-4">
-      {/* Cart Items */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* Product List */}
-        <div className="space-y-8">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="flex items-center justify-between border-b pb-4"
-            >
-              {/* Product Image */}
-              <div className="w-1/4 h-[100px] relative">
-                <Image
-                  src={product.img}
-                  alt={product.name}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded"
-                />
-              </div>
+    <section className="bg-[#ffffff] py-12">
+      <div className="max-w-[1920px] mx-auto px-6">
+        <h1 className="text-3xl font-semibold mb-8 text-[#757575] pl-6">Bag</h1>
 
-              {/* Product Details */}
-              <div className="w-3/4 flex justify-between">
-                <div className="text-[#272343]">
-                  <h3 className="text-lg font-semibold">{product.name}</h3>
-                  <p className="text-sm text-gray-500">Size: L, Quantity: {product.qty}</p>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          {/* Cart Items Section */}
+          <div className="col-span-1 md:col-span-8 bg-white shadow rounded-lg p-6">
+            <div className="flex flex-col sm:flex-row items-center justify-between border-b pb-6 mb-6">
+              <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
+                <div className="order-1 sm:order-none">
+                  <Image
+                    src="/images/product-03.png"
+                    alt="Chair"
+                    width={180} 
+                    height={180} 
+                    className="object-cover rounded-md"
+                  />
                 </div>
-
-                <div className="text-[#272343] font-semibold">{product.price}</div>
+                
+                {/* Product Details */}
+                <div className="w-full order-2 sm:order-none">
+                  <h2 className="text-lg sm:text-lg font-medium">Library Stool Chair</h2>
+                  <p className="text-sm sm:text-sm text-gray-500">Ashen Slate/Cobalt Bliss</p>
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
+                    <p className="text-sm sm:text-sm text-gray-500">Size: L</p>
+                    <p className="text-sm sm:text-sm text-gray-500">Quantity: 1</p>
+                  </div>
+                  <div className="flex gap-4 mt-4">
+                    <HeartIcon className="w-6 h-6 text-gray-500 hover:text-[#027b89] cursor-pointer" />
+                    <TrashIcon className="w-6 h-6 text-gray-500 hover:text-[#027b89] cursor-pointer" />
+                  </div>
+                </div>
+              </div>
+              <div className="text-right mt-4 sm:mt-0">
+                <p className="text-sm sm:text-lg font-medium mb-20">MRP: $99</p>
               </div>
             </div>
-          ))}
-        </div>
 
-        <div className="bg-transparent rounded-lg p-6 max-w-[400px] border border-gray-300">
-          <h2 className="text-xl font-semibold text-[#272343] mb-6">Summary</h2>
-          <div className="flex justify-between py-2 border-b border-gray-300">
-            <span className="text-sm text-gray-500">Subtotal</span>
-            <span className="font-semibold">$198.00</span>
+            <div className="flex flex-col sm:flex-row items-center justify-between">
+              <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
+                <div className="order-1 sm:order-none">
+                  <Image
+                    src="/images/product-05.png"
+                    alt="Desk Chair"
+                    width={180} 
+                    height={180} 
+                    className="object-cover rounded-md"
+                  />
+                </div>
+                
+                {/* Product Details */}
+                <div className="w-full order-2 sm:order-none">
+                  <h2 className="text-lg sm:text-lg font-medium">Library Stool Chair</h2>
+                  <p className="text-sm sm:text-sm text-gray-500">Ashen Slate/Cobalt Bliss</p>
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
+                    <p className="text-sm sm:text-sm text-gray-500">Size: M</p>
+                    <p className="text-sm sm:text-sm text-gray-500">Quantity: 1</p>
+                  </div>
+                  <div className="flex gap-4 mt-4">
+                    <HeartIcon className="w-6 h-6 text-gray-500 hover:text-[#027b89] cursor-pointer" />
+                    <TrashIcon className="w-6 h-6 text-gray-500 hover:text-[#027b89] cursor-pointer" />
+                  </div>
+                </div>
+              </div>
+              <div className="text-right mt-4 sm:mt-0">
+                <p className="text-sm sm:text-lg font-medium mb-20">MRP: $99</p>
+              </div>
+            </div>
           </div>
-          <div className="flex justify-between py-2 border-b border-gray-300">
-            <span className="text-sm text-gray-500">Estimated Delivery & Handling</span>
-            <span className="font-semibold">Free</span>
+
+          {/* Summary Section */}
+          <div className="col-span-1 md:col-span-4 bg-white shadow rounded-lg p-6">
+            <h2 className="text-sm sm:text-lg font-medium mb-4 text-[#111111]">Summary</h2>
+            <div className="flex justify-between text-xs sm:text-sm mb-2">
+              <span>Subtotal</span>
+              <span>$198.00</span>
+            </div>
+            <div className="flex justify-between text-xs sm:text-sm mb-2">
+              <span>Estimated Delivery</span>
+              <span>Free</span>
+            </div>
+            <div className="flex justify-between text-sm sm:text-lg font-semibold mb-6">
+              <span>Total</span>
+              <span>$198.00</span>
+            </div>
+            <button
+              className="w-full h-[50px] bg-[#029FAE] text-white py-[8px] rounded-full hover:bg-[#027b89]"
+            >
+              Member Checkout
+            </button>
           </div>
-          <div className="flex justify-between py-4 border-b border-gray-300">
-            <span className="text-lg font-semibold">Total</span>
-            <span className="text-lg font-semibold">$198.00</span>
-          </div>
-          <button className="w-full bg-[#029FAE] text-white text-center py-3 rounded-lg mt-4 flex items-center justify-center">
-            <ShoppingCartIcon className="w-5 h-5 mr-2 text-white" />
-            Member Checkout
-          </button>
         </div>
       </div>
     </section>
   );
 };
 
-export default CartPage;
+export default CartSection;
+

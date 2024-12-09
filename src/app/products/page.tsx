@@ -1,20 +1,94 @@
+import {FC} from "react";
 import Image from "next/image";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
 const FeaturedProducts: FC = () => {
   const products = [
-    { id: 1, label: "New", name: "Library Stool Chair", price: "$20", originalPrice: "", img: "/images/product-01.png" },
-    { id: 2, label: "Sale", name: "Library Stool Chair", price: "$20", originalPrice: "$30", img: "/images/product-02.png" },
-    { id: 3, label: "", name: "Library Stool Chair", price: "$20", originalPrice: "", img: "/images/product-03.png" },
-    { id: 4, label: "", name: "Library Stool Chair", price: "$20", originalPrice: "", img: "/images/product-06.png" },
-    { id: 5, label: "New", name: "Library Stool Chair", price: "$20", originalPrice: "", img: "/images/product-08.png" },
-    { id: 6, label: "Sale", name: "Library Stool Chair", price: "$20", originalPrice: "$30", img: "/images/product-09.png" },
-    { id: 7, label: "Sale", name: "Library Stool Chair", price: "$20", originalPrice: "$30", img: "/images/product-01.png" },
-    { id: 8, label: "", name: "Library Stool Chair", price: "$20", originalPrice: "", img: "/images/product-05.png" },
-    { id: 9, label: "", name: "Library Stool Chair", price: "$20", originalPrice: "$30", img: "/images/product-05.png" },
-    { id: 10, label: "", name: "Library Stool Chair", price: "$20", originalPrice: "", img: "/images/product-02.png" },
-    { id: 11, label: "", name: "Library Stool Chair", price: "$20", originalPrice: "", img: "/images/product-03.png" },
-    { id: 12, label: "", name: "Library Stool Chair", price: "$20", originalPrice: "", img: "/images/product-07.png" },
+    { 
+      id: "1", 
+      label: "New", 
+      name: "Library Stool Chair", 
+      price: "$20", originalPrice: "", 
+      img: "/images/product-01.png" 
+    },
+    { id: "2", 
+      label: "Sale", 
+      name: "Library Stool Chair", 
+      price: "$20", 
+      originalPrice: "$30", 
+      img: "/images/product-02.png" 
+    },
+    { 
+      id: "3", 
+      label: "",
+      name: "Library Stool Chair", 
+      price: "$20", originalPrice: "", 
+      img: "/images/product-03.png" 
+    },
+    { 
+      id: "4", 
+      label: "", 
+      name: "Library Stool Chair", 
+      price: "$20", originalPrice: "",
+      img: "/images/product-06.png"
+    },
+    { 
+      id: "5", 
+      label: "New", 
+      name: "Library Stool Chair", 
+      price: "$20", originalPrice: "", 
+      img: "/images/product-08.png" 
+    },
+    { id: "6", 
+      label: "Sale", 
+      name: "Library Stool Chair", 
+      price: "$20", originalPrice: "$30", 
+      img: "/images/product-09.png" 
+    },
+    { 
+      id: "7", 
+      label: "Sale", 
+      name: "Library Stool Chair", 
+      price: "$20", 
+      originalPrice: "$30", 
+      img: "/images/product-01.png" 
+    },
+    { 
+      id: "8", 
+      label: "", 
+      name: "Library Stool Chair", 
+      price: "$20", 
+      originalPrice: "", 
+      img: "/images/product-05.png" },
+    { 
+      id: "9", 
+      label: "", 
+      name: "Library Stool Chair", 
+      price: "$20", originalPrice: "$30", 
+      img: "/images/product-05.png" 
+    },
+    { id: "10", 
+      label: "", 
+      name: "Library Stool Chair", 
+      price: "$20", 
+      originalPrice: "", 
+      img: "/images/product-02.png" 
+    },
+    { 
+      id: "11", 
+      label: "", 
+      name: "Library Stool Chair", 
+      price: "$20", 
+      originalPrice: "", 
+      img: "/images/product-03.png" 
+    },
+    { 
+      id: "12" ,
+      label: "", 
+      name: "Library Stool Chair", 
+      price: "$20", originalPrice: "", 
+      img: "/images/product-07.png" 
+    },
   ];
 
   const instagramImages = [
@@ -28,11 +102,9 @@ const FeaturedProducts: FC = () => {
 
   return (
     <section className="w-full max-w-[1920px] mx-auto py-10 px-4">
-      {/* Section Header */}
       <h2 className="text-3xl font-bold text-[#272343] mb-6">All Products</h2>
 
-      {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pb-10 ">
         {products.map((product) => (
           <div key={product.id} className="relative bg-transparent group">
             <div className="w-full h-[312px] relative">
@@ -41,7 +113,7 @@ const FeaturedProducts: FC = () => {
                 alt={product.name}
                 layout="fill"
                 objectFit="cover"
-                className="rounded"
+                className="rounded transition-transform duration-300 group-hover:scale-105"
               />
               {product.label && (
                 <div
@@ -65,7 +137,7 @@ const FeaturedProducts: FC = () => {
                   )}
                 </div>
               </div>
-              <button className="w-[44px] h-[44px] bg-[#F0F2F3] rounded flex items-center justify-center group-hover:bg-gray-200 transition-all duration-300">
+              <button className="w-[44px] h-[44px] bg-[#F0F2F3] rounded flex items-center justify-center group-hover:bg-[#029FAE] transition-all duration-300">
                 <ShoppingCartIcon className="w-[22px] h-[22px] text-black" />
               </button>
             </div>
@@ -74,7 +146,6 @@ const FeaturedProducts: FC = () => {
       </div>
 
       <div className="bg-gray-100 py-12">
-        {/* Subscribe Section */}
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-[#272343] mb-2">Subscribe to the Newsletter</h2>
           <p className="text-base text-gray-500 mb-4">Get updates about new products and discounts.</p>
@@ -91,12 +162,11 @@ const FeaturedProducts: FC = () => {
         </div>
       </div>
 
-      {/* Instagram Section */}
       <div className="bg-gray-100 text-center">
         <h2 className="text-3xl font-bold text-[#272343] mb-6">Follow Products and Discounts on Instagram</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {instagramImages.map((img, index) => (
-            <div key={index} className="w-[186px] h-[186px] mx-auto">
+            <div key={index} className="w-[186px] h-[186px] mx-">
               <Image
                 src={img}
                 alt={`Instagram ${index + 1}`}

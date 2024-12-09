@@ -1,4 +1,3 @@
-// /components/FeaturedProducts.tsx
 import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,10 +5,35 @@ import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
 const FeaturedProducts: FC = () => {
   const products = [
-    { id: 1, label: "New", name: "Library Stool Chair", price: "$20", originalPrice: "", img: "/images/product-01.png" },
-    { id: 2, label: "Sale", name: "Library Stool Chair", price: "$20", originalPrice: "$30", img: "/images/product-02.png" },
-    { id: 3, label: "", name: "Library Stool Chair", price: "$20", originalPrice: "", img: "/images/product-03.png" },
-    { id: 4, label: "", name: "Library Stool Chair", price: "$20", originalPrice: "", img: "/images/product-04.png" },
+    { 
+      id: "1",
+      label: "New", 
+      name: "Library Stool Chair", 
+      price: "$20", originalPrice: "", 
+      img: "/images/product-01.png" 
+    },
+    { 
+      id: "2",
+      label: "Sale",
+      name: "Library Stool Chair", 
+      price: "$20", 
+      originalPrice: "$30", 
+      img: "/images/product-02.png" 
+    },
+    { 
+      id: "3",
+      label: "", 
+      name: "Library Stool Chair", 
+      price: "$20", originalPrice: "", 
+      img: "/images/product-03.png" 
+    },
+    { 
+      id: "4",
+      label: "", 
+      name: "Library Stool Chair", 
+      price: "$20", originalPrice: "", 
+      img: "/images/product-04.png" 
+    },
   ];
 
   return (
@@ -24,7 +48,7 @@ const FeaturedProducts: FC = () => {
                 alt={product.name}
                 layout="fill"
                 objectFit="cover"
-                className="rounded"
+                className="rounded transition-transform duration-300 group-hover:scale-105"
               />
               {product.label && (
                 <div

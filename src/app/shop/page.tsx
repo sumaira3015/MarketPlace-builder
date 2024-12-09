@@ -2,8 +2,8 @@
 
 import { FC, useState } from "react";
 import Image from "next/image";
-import FeaturedProducts from "@/components/FeaturedProducts";
-import OurProducts from "@/components/OurProducts";
+import FeaturedProducts from "@/components/products/FeaturedProducts";
+import OurProducts from "@/components/products/OurProducts";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
 const SingleProductPage: FC = () => {

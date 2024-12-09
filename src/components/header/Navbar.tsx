@@ -13,7 +13,7 @@ const Navbar: FC = () => {
   return (
     <div className="bg-white p-4 flex items-center justify-between max-w-[1920px] mx-auto h-[74px]">
       <div className="flex space-x-8 lg:space-x-12 items-center pl-6 hidden sm:flex">
-        <Link href="/" className="text-lg font-lg text-[#272343] hover:text-[#029FAE]">
+        <Link href="/" className="text-lg font-medium text-[#272343] hover:text-[#029FAE]">
           Home
         </Link>
         <Link href="/shop" className="text-lg font-medium text-[#272343] hover:text-[#029FAE]">
@@ -22,7 +22,7 @@ const Navbar: FC = () => {
         <Link href="/products" className="text-lg font-medium text-[#272343] hover:text-[#029FAE]">
           Product
         </Link>
-        <Link href="/pages" className="text-lg font-medium text-[#272343] hover:text-[#029FAE]">
+        <Link href="/shop" className="text-lg font-medium text-[#272343] hover:text-[#029FAE]">
           Pages
         </Link>
         <Link href="/about" className="text-lg font-medium text-[#272343] hover:text-[#029FAE]">
@@ -31,10 +31,10 @@ const Navbar: FC = () => {
       </div>
 
       <div className="flex items-center space-x-8 lg:space-x-12">
-        <Link href="/contact" className="text-sm font-medium text-[#272343] hover:text-[#029FAE]">
+        <Link href="/contact" className="text-1xl font-medium text-[#272343] hover:text-[#029FAE]">
           Contact
         </Link>
-        <span className="text-sm font-medium text-[#272343] hidden lg:block">
+        <span className="text-1xl font-medium text-[#272343] hidden lg:block">
           (808) 555-0111
         </span>
       </div>
