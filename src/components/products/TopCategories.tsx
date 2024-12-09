@@ -19,17 +19,18 @@ const TopCategories: FC = () => {
       id: "3", 
       name: "Desk Chair", 
       count: "154 Products", 
-      img: "/images/product-03.png" },
+      img: "/images/product-03.png" 
+    },
   ];
 
   return (
     <section className="w-full max-w-[1920px] mx-auto py-10 px-4">
-      <h2 className="text-3xl font-bold text-[#272343] mb-6">Top Categories</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+      <h2 className="text-3xl font-bold text-[#272343] mb-6 text-center sm:text-left">Top Categories</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((category) => (
           <div
             key={category.id}
-            className="relative w-full h-[424px] bg-gray-100 rounded-lg overflow-hidden group"
+            className="relative w-full h-[300px] sm:h-[350px] lg:h-[424px] bg-gray-100 rounded-lg overflow-hidden group"
           >
             <Image
               src={category.img}

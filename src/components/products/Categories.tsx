@@ -32,12 +32,11 @@ const CustomGridSection: FC = () => {
 
   return (
     <section className="relative w-full max-w-[1920px] mx-auto py-10 px-4">
-      <div className="absolute bottom-20 lg:left-10 transform -rotate-90 origin-left text-[#272343] font-3xl font-bold text-lg md:text-xl lg:text-2xl">
+      <div className="absolute bottom-20 lg:left-10 transform -rotate-90 origin-left text-[#272343] font-3xl font-bold text-lg md:text-xl lg:text-2xl mb-10">
         EXPLORE NEW AND POPULAR STYLES
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 ml-[50px] lg:ml-[60px]">
-        {/* Main image */}
         <div className="relative h-[300px] md:h-[400px] lg:h-[648px] group">
           <div className="absolute left-4 top-4 text-white bg-black bg-opacity-50 px-3 py-1 rounded-md">
             <h3 className="text-lg font-semibold">{categories[0].name}</h3>
@@ -51,7 +50,6 @@ const CustomGridSection: FC = () => {
           />
         </div>
 
-        {/* Grid of smaller images */}
         <div className="grid grid-cols-2 gap-4 md:gap-6">
           {categories.slice(1).map((category) => (
             <div

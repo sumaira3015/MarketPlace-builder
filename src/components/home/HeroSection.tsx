@@ -24,7 +24,7 @@ const HeroSection: FC = () => {
 
         <div className="w-full md:w-1/2 flex justify-center mt-6 md:mt-0">
           <Image
-            src="/images/Product Image.png" 
+            src="/images/hero.png" 
             alt="Furniture Collection"
             width={434} 
             height={584} 
