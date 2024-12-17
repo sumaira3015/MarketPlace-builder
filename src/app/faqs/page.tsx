@@ -1,7 +1,7 @@
-import { FC } from "react";
+import React from "react";
 import { PlusIcon } from "@heroicons/react/24/outline"; // Importing the Plus Icon
 
-const FAQSection: FC = () => {
+const FAQSection = () => {
   const faqs = [
     {
       question: "What types of chairs do you offer?",
@@ -38,18 +38,15 @@ const FAQSection: FC = () => {
   return (
     <section className="w-full max-w-[1920px] mx-auto py-10 px-4 mb-10">
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-[#272343]">Questions Look Here</h2>
-
-        <p className="text-sm text-[#272343] mt-4"> 
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
-        </p>
+        <h2 className="lg:text-5xl md:text-4xl text-3xl font-bold text-[#272343] mt-10">Questions Look Here</h2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+      {/* Mapping through FAQs array to display each FAQ item */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-20">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="relative bg-gray-100 p-6 rounded-lg shadow-md" 
+            className="relative bg-gray-100 p-6 rounded-lg shadow-md hover:scale-[1.03] transition-transform duration-300" 
           >
             <PlusIcon className="absolute top-2 right-2 w-6 h-6 text-[#272343] cursor-pointer" />
 

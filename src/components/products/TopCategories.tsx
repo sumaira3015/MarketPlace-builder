@@ -1,7 +1,9 @@
-import { FC } from "react";
+import React from "react";
 import Image from "next/image";
 
-const TopCategories: FC = () => {
+const TopCategories = () => {
+
+  // Product data array containing label, name, count, and image.
   const categories = [
     { 
       id: "1", 
@@ -25,7 +27,7 @@ const TopCategories: FC = () => {
 
   return (
     <section className="w-full max-w-[1920px] mx-auto py-10 px-4">
-      <h2 className="text-3xl font-bold text-[#272343] mb-6 text-center sm:text-left">Top Categories</h2>
+      <h2 className="lg:text-4xl md:text-3xl text-2xl font-bold text-[#272343] mb-6 text-center sm:text-left">Top Categories</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((category) => (
           <div

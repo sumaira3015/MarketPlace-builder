@@ -1,7 +1,9 @@
-import { FC } from "react";
+import React from "react";
 import Image from "next/image";
 
-const CustomGridSection: FC = () => {
+const CategoriesSection = () => {
+
+  // Product data array containing label, and image.
   const categories = [
     { 
       id: "1", 
@@ -31,8 +33,8 @@ const CustomGridSection: FC = () => {
   ];
 
   return (
-    <section className="relative w-full max-w-[1920px] mx-auto py-10 px-4">
-      <div className="absolute bottom-20 lg:left-10 transform -rotate-90 origin-left text-[#272343] font-3xl font-bold text-lg md:text-xl lg:text-2xl mb-10">
+    <section className="relative w-full max-w-[1920px] mx-auto py-10 px-4 mt-10">
+      <div className="absolute bottom-20 transform -rotate-90 origin-left text-[#272343] font-bold lg:text-3xl md:text-xl text-xl ml-5 whitespace-nowrap">
         EXPLORE NEW AND POPULAR STYLES
       </div>
 
@@ -46,7 +48,7 @@ const CustomGridSection: FC = () => {
             alt={categories[0].name}
             layout="fill"
             objectFit="cover"
-            className="transition-transform duration-300 group-hover:scale-105"
+            className="hover:scale-[1.03] transition-transform duration-300"
           />
         </div>
 
@@ -76,4 +78,4 @@ const CustomGridSection: FC = () => {
   );
 };
 
-export default CustomGridSection;
+export default CategoriesSection;

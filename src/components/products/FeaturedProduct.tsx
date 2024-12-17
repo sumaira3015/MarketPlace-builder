@@ -1,9 +1,15 @@
-import { FC } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
-const FeaturedProducts: FC = () => {
+/*
+ * FeaturedProducts Component
+ * Displays a grid of featured products with images, labels, prices, and a shopping cart button.
+ */
+
+const FeaturedProducts = () => {
+  // Array of products with details like label, name, price, and image.
   const products = [
     { 
       id: "1",
@@ -38,7 +44,7 @@ const FeaturedProducts: FC = () => {
 
   return (
     <section className="w-full max-w-[1920px] mx-auto py-10 px-4">
-      <h2 className="text-3xl font-bold text-[#272343] mb-6">Featured Products</h2>
+      <h2 className="lg:text-4xl md:text-3xl text-2xl font-bold text-[#272343] mb-8">Featured Products</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <div key={product.id} className="relative bg-transparent group">
@@ -48,7 +54,7 @@ const FeaturedProducts: FC = () => {
                 alt={product.name}
                 layout="fill"
                 objectFit="cover"
-                className="rounded transition-transform duration-300 group-hover:scale-105"
+                className="rounded hover:scale-[1.03] transition-transform duration-300"
               />
               {product.label && (
                 <div
@@ -70,15 +76,16 @@ const FeaturedProducts: FC = () => {
                 </Link>
 
                 <div className="flex items-center space-x-2">
-                  <p className="text-sm font-semibold text-[#272343]">{product.price}</p>
+                  <p className="text-sm font-bold text-[#272343]">{product.price}</p>
                   {product.originalPrice && (
                     <p className="text-sm text-gray-500 line-through">{product.originalPrice}</p>
                   )}
                 </div>
               </div>
-
+          
+             {/* Add to Cart Button */}
               <button className="w-[44px] h-[44px] bg-[#F0F2F3] rounded flex items-center justify-center group-hover:bg-[#029FAE] transition-all duration-300">
-                <ShoppingCartIcon className="w-[22px] h-[22px] text-black" />
+                <ShoppingCartIcon className="w-[29px] h-[29px] text-black" />
               </button>
             </div>
           </div>
