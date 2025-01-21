@@ -1,0 +1,386 @@
+System Architecture for Next.js Project
+                              +-----------------------+
+                              |      Frontend (Next.js)|
+                              |        - User Interface|
+                              |        - SSR, SSG       |
+                              +----------+------------+
+                                         |
+                                         v
+                              +-----------------------+
+                              |      Sanity CMS       |
+                              |      - Content API    |
+                              |      - Manage Content |
+                              +----------+------------+
+                                         |
+                                         v
+                             +------------------------+
+                             |   Product Data API     |
+                             |   - Fetch Product Info |
+                             |   - Fetch Pricing      |
+                             |   - Fetch Categories   |
+                             +----------+-------------+
+                                         |
+                                         v
+                              +-----------------------+
+                              |  Third-Party API      |
+                              |  - Product Data Sync  |
+                              |  - External Data      |
+                              +----------+------------+
+                                         |
+                                         v
+                             +------------------------+
+                             | Shipment Tracking API  |
+                             | - Order Status         |
+                             | - Shipment Details     |
+                             +----------+-------------+
+                                         |
+                                         v
+                             +------------------------+
+                             |   Payment Gateway      |
+                             | - Process Payments     |
+                             | - Payment Confirmation |
+                             +------------------------+
+
+
+
+
+Explanation of Components and Data Flow:
+Frontend (Next.js):
+
+Description: The user-facing part of your system, built with Next.js. It renders the website, including product pages, categories, shopping carts, and checkout flows.
+Data Flow: The frontend fetches data via API calls for products, categories, payment, and shipping information, integrating with CMS and third-party APIs.
+Functionality:
+Static Site Generation (SSG) or Server-Side Rendering (SSR) for SEO and faster page loads.
+React components and pages to handle the user interface and interactivity.
+API routes in Next.js to interact with backend services.
+Sanity CMS:
+
+Description: A headless CMS (Sanity) to manage and store your product and content data, such as product descriptions, images, pricing, etc.
+Data Flow: The frontend fetches product data from the CMS via a content API provided by Sanity.
+Functionality:
+Manage product content and other website content such as blogs, articles, etc.
+Admin panel for content creators to update product info, stock, etc.
+Product Data API:
+
+Description: A custom API to fetch detailed product information (e.g., specifications, price, availability, categories) and sync it with your frontend.
+Data Flow: This API receives requests from the Next.js frontend and delivers detailed product data fetched from the CMS or third-party sources.
+Functionality:
+Fetch products data from the CMS (e.g., Sanity) or third-party sources.
+Provide endpoints for listing products, fetching product details, pricing, and product categories.
+Third-Party API:
+
+Description: External APIs integrated into the system, providing data synchronization, extra product data, or other services (e.g., reviews, additional product data).
+Data Flow: Data from third-party APIs can be fetched and synced with the Product Data API.
+Functionality:
+Pull in extra data like product reviews, ratings, or external product info.
+Provide enriched product data for better user experience (e.g., reviews, stock updates).
+Shipment Tracking API:
+
+Description: A shipment tracking API (e.g., UPS, FedEx, etc.) to provide real-time shipment tracking details for customers.
+Data Flow: After a user makes a purchase, the tracking number is fetched from this API and displayed on the frontend.
+Functionality:
+Fetch shipment status and details using a tracking ID.
+Provide shipping progress information to customers (e.g., shipped, in transit, delivered).
+Payment Gateway:
+
+Description: A payment service provider (e.g., Stripe, PayPal) to process payments securely.
+Data Flow: Users initiate payment via the frontend, which communicates with the payment gateway to process the transaction. Afterward, the payment confirmation is sent to the frontend and backend.
+Functionality:
+Securely process payments.
+Handle order transactions, including successful or failed payments.
+Integrate with the backend to update order statuses.
+Typical Data Flow:
+The user visits the Frontend (Next.js) and browses products.
+The frontend queries the Sanity CMS to fetch product information, such as name, price, image, and description.
+The frontend may also fetch additional product information from the Product Data API if it needs more detailed data.
+If the user proceeds to checkout, the frontend integrates with the Payment Gateway to process the transaction.
+Once the order is confirmed, the Shipment Tracking API is used to provide shipping updates to the user.
+Throughout the process, third-party APIs may be used to enhance the product data, such as providing reviews, ratings, or more accurate pricing.
+Benefits:
+Separation of Concerns: By splitting different responsibilities (e.g., product data, payment processing, shipment tracking), the system remains modular, scalable, and maintainable.
+Scalability: Each service can be scaled independently, such as increasing CMS capacity or scaling the payment gateway as needed.
+Performance: Leveraging Next.js’s server-side rendering and static site generation allows fast and optimized performance.
+
+Complete Workflow for Next.js Project
+1. User Registration Workflow:
+Step 1: The user visits the registration page on the frontend (Next.js).
+Step 2: The user submits their personal information (e.g., email, password, name) in a form.
+Step 3: The frontend sends the form data to a User Registration API (this could be a custom API or a third-party service like Firebase or Auth0).
+Step 4: The registration data is stored in the Sanity CMS or a separate user management database.
+Step 5: A confirmation email or verification link is sent to the user via an email service (e.g., SendGrid, Mailgun).
+Step 6: The user clicks the verification link in their email, confirming their registration.
+Step 7: The system acknowledges the registration and updates the user's status in Sanity or the user management database (e.g., user is now verified).
+Step 8: The user is redirected to the homepage or a welcome page after successful registration.
+2. Product Browsing Workflow:
+Step 1: The user visits the homepage or product categories page on the frontend (Next.js).
+Step 2: The frontend sends a request to the Sanity CMS API to fetch available categories.
+Step 3: Sanity responds with the list of product categories (e.g., "Wing Chair", "Wooden Chair", etc.) along with any other relevant information (e.g., category image, count of products).
+Step 4: The frontend displays the product categories on the page.
+Step 5: The user clicks on a category to view its products.
+Step 6: The frontend makes another API request to Product Data API to fetch products from the selected category.
+Step 7: The Product Data API responds with detailed product information (name, price, image, description, availability).
+Step 8: The frontend displays the list of products under the selected category.
+Step 9: The user can add products to their shopping cart or continue browsing.
+3. Order Placement Workflow:
+Step 1: The user adds products to their cart and clicks the "Checkout" button.
+Step 2: The frontend checks if the user is logged in. If not, the user is prompted to log in or sign up.
+Step 3: Once logged in, the user is redirected to the checkout page.
+Step 4: The user enters shipping and payment details (address, credit card, etc.) on the checkout page.
+Step 5: The frontend sends a request to the Payment Gateway API to process the payment.
+Step 6: The Payment Gateway API processes the payment and returns a success or failure response.
+Step 7: If the payment is successful, the frontend sends the order details (products, total price, shipping address, etc.) to Sanity CMS or a backend service to save the order.
+Step 8: An order confirmation email is sent to the user, and the user is shown an order confirmation page with their order details.
+Step 9: The order status is marked as "Pending" or "Processing" in the database.
+4. Shipment Tracking Workflow:
+Step 1: Once the order is processed and shipped, the Order Management API (or backend service) generates a shipment tracking ID.
+Step 2: The frontend requests tracking information by sending the tracking ID to the Shipment Tracking API (e.g., UPS, FedEx).
+Step 3: The Shipment Tracking API returns the current shipment status (e.g., "Shipped", "In Transit", "Delivered").
+Step 4: The frontend displays the shipment status to the user on their account page or via email notifications.
+Step 5: If the user wants more details, the frontend provides a link to the shipment carrier's website for real-time tracking.
+Step 6: The user is notified when the shipment is delivered, and the order status is updated to "Completed" in the backend.
+5. User Account Management Workflow:
+Step 1: The user logs in to their account using their credentials.
+Step 2: The frontend sends the login credentials to the Authentication API (could be integrated with a service like Firebase or Auth0).
+Step 3: Upon successful authentication, the frontend retrieves the user’s order history and personal details.
+Step 4: The user can view past orders, update their account information (email, password), and manage their preferences.
+Step 5: The user can log out at any time, which will invalidate the session and log them out of the system.
+Summary of Data Flow:
+User Registration: User submits details → Data stored in CMS/DB → Confirmation email sent → User confirmed.
+Product Browsing: User browses categories → Product data fetched from Sanity API → Displayed on frontend.
+Order Placement: User adds to cart → Checkout initiated → Payment processed → Order saved → Confirmation sent.
+Shipment Tracking: Shipment details fetched via 3rd-party API → User is notified of the status.
+Key Technologies:
+Frontend: Next.js (SSG/SSR), React
+CMS: Sanity (for content management)
+APIs: Payment Gateway, Product Data API, Shipment Tracking API
+Authentication: Firebase/Auth0 (for user registration and login)
+Email Service: SendGrid, Mailgun (for user confirmations)
+This workflow ensures that each key interaction, from browsing products to receiving orders and shipment tracking, is smoothly handled while separating concerns for scalability and maintainability.
+
+1. Product Management APIs
+1.1 Fetch All Products
+.Endpoint Name: /api/products
+.Method: GET
+.Description: Fetches all available products from Sanity CMS.
+.Response Example:
+[
+  {
+    "id": "1",
+    "name": "Wing Chair",
+    "price": 100,
+    "stock": 20,
+    "image": "/images/product-01.png"
+  },
+  {
+    "id": "2",
+    "name": "Wooden Chair",
+    "price": 150,
+    "stock": 15,
+    "image": "/images/product-02.png"
+  }
+]
+1.2 Fetch Product by ID
+.Endpoint Name: /api/products/:id
+.Method: GET
+.Description: Fetches a single product's details based on the id from Sanity CMS.
+.URL Parameters: id (The product ID)
+.Response Example:
+{
+  "id": "1",
+  "name": "Wing Chair",
+  "price": 100,
+  "stock": 20,
+  "image": "/images/product-01.png",
+  "description": "Comfortable wing chair with soft cushions."
+}
+2. Order Management APIs
+2.1 Create New Order
+.Endpoint Name: /api/orders
+.Method: POST
+.Description: Creates a new order in Sanity CMS.
+.Request Payload:
+{
+  "customerInfo": {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "address": "123 Main St, City, Country"
+  },
+  "products": [
+    {
+      "productId": "1",
+      "quantity": 2,
+      "price": 100
+    },
+    {
+      "productId": "2",
+      "quantity": 1,
+      "price": 150
+    }
+  ],
+  "paymentStatus": "paid"
+}
+.Response Example:
+{
+  "orderId": "abc123",
+  "status": "order placed",
+  "message": "Order has been successfully placed."
+}
+Sanity CMS Schema Example:
+export default {
+  name: 'order',
+  title: 'Order',
+  type: 'document',
+  fields: [
+    {
+      name: 'customerInfo',
+      type: 'object',
+      fields: [
+        { name: 'name', type: 'string' },
+        { name: 'email', type: 'string' },
+        { name: 'address', type: 'string' }
+      ]
+    },
+    {
+      name: 'products',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'product' }]
+        },
+        { name: 'quantity', type: 'number' }
+      ]
+    },
+    {
+      name: 'paymentStatus',
+      type: 'string',
+      title: 'Payment Status'
+    }
+  ]
+}
+2.2 Fetch Order Details
+.Endpoint Name: /api/orders/:id
+.Method: GET
+.Description: Fetches the details of a specific order using the order ID.
+.URL Parameters: id (Order ID)
+.Response Example:
+
+{
+  "orderId": "abc123",
+  "customerInfo": {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "address": "123 Main St, City, Country"
+  },
+  "products": [
+    {
+      "productId": "1",
+      "name": "Wing Chair",
+      "quantity": 2,
+      "price": 100
+    },
+    {
+      "productId": "2",
+      "name": "Wooden Chair",
+      "quantity": 1,
+      "price": 150
+    }
+  ],
+  "paymentStatus": "paid",
+  "status": "shipped"
+}
+
+3. Shipment Tracking APIs
+3.1 Track Shipment Status
+.Endpoint Name: /api/shipment/:trackingId
+.Method: GET
+.Description: Fetches the shipment status from a third-party API (e.g., FedEx, UPS) using the tracking ID.
+.URL Parameters: trackingId (The shipment tracking ID)
+.Response Example:
+
+{
+  "trackingId": "XYZ123456789",
+  "status": "In Transit",
+  "expectedDelivery": "2025-01-20",
+  "carrier": "FedEx"
+}
+4. Payment APIs
+4.1 Process Payment
+Endpoint Name: /api/payment
+Method: POST
+Description: Sends payment details to the payment gateway (e.g., Stripe, PayPal) for processing.
+Request Payload:
+{
+  "orderId": "abc123",
+  "amount": 350,
+  "paymentMethod": "credit_card",
+  "cardNumber": "xxxx-xxxx-xxxx-1234",
+  "expiryDate": "01/23",
+  "cvv": "123"
+}
+Response Example:
+{
+  "status": "success",
+  "paymentStatus": "paid",
+  "message": "Payment processed successfully."
+}
+5. User Profile Management APIs
+5.1 Fetch User Profile
+Endpoint Name: /api/user/:id
+Method: GET
+Description: Fetches the user profile details.
+URL Parameters: id (User ID)
+Response Example:
+{
+  "userId": "123",
+  "name": "John Doe",
+  "email": "john@example.com",
+  "address": "123 Main St, City, Country"
+}
+5.2 Update User Profile
+.Endpoint Name: /api/user/:id
+.Method: PUT
+.Description: Allows the user to update their profile details (name, email, shipping address).
+.Request Payload:
+{
+  "name": "John Doe Updated",
+  "email": "john.updated@example.com",
+  "address": "456 New St, New City, Country"
+}
+Response Example:
+{
+  "status": "success",
+  "message": "Profile updated successfully."
+}
+Conclusion
+This detailed API plan aligns with the typical eCommerce workflow, including product management, order creation, shipment tracking, payment processing, and user profile management. The Sanity CMS schema examples and API endpoints ensure that each part of the system interacts seamlessly.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

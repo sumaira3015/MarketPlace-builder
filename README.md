@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -35,3 +36,10 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 "# Hackathon-02" 
+=======
+System Architecture for Next.js Project
+Explanation of Components and Data Flow:
+Complete Workflow for Next.js Project
+Product Management APIs
+workflow Diagram
+>>>>>>> 5bcb9a669648b5818ddac7d57d12fe7d13af14f1
